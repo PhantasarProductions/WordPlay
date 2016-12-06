@@ -27,8 +27,24 @@ For Local i=5 To 25 Step 5
 Next
 SelectGadgetItem numwords,3
 
-LocalizeGadget  mm_win, "{{title}}", "title"
+LocalizeGadget CreateLabel("yeah",0,75,mm_cx,25,mm_win),"{{list}}"
+Global mm_wordlist:tgadget = CreateComboBox(mm_cx,75,mm_cx,75,mm_win)
+If Not CountList(wordlistfiles) Notify "No word lists have been found!~nI need at least one to operate"; End
+SortList wordlistfiles
+For Local w$=EachIn wordlistfiles 
+	AddGadgetItem mm_wordlist,w
+Next
+SelectGadgetItem mm_wordlist,0
 
+LocalizeGadget CreateLabel("yeah",0,100,mm_cx,25,mm_win),"{{seed}}"
+Global mm_seed : tgadget = CreateTextField(mm_cx,100,mm_cx,25,mm_win)
+
+
+LocalizeGadget CreateLabel("yeah",0,125,mm_cx,25,mm_win),"{{language}}"
+
+
+
+LocalizeGadget  mm_win, "{{title}}", "title"
 LocalizeGadget mm_ud,"{{dir_ud}}"
 LocalizeGadget mm_du,"{{dir_du}}"
 LocalizeGadget mm_lr,"{{dir_lr}}"
