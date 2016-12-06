@@ -13,16 +13,18 @@ End Function
 
 ?Not macos
 Global  langdir$ = AppDir+"/"+"Languages/"
-Global worddir$ = Apprdir+"/"+"Wordlist/"
+Global worddir$ = AppDir+"/"+"Wordlist/"
 ?MacOS
 Global langdir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/Languages/"
-Global langdir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/WordList/"
+Global worddir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/WordList/"
 ? 
 
 For Local lf$=EachIn ListDir(langdir)
 	Print "Loading Language: "+lf
 	MapInsert maxlanguages,StripAll(lf),LoadLanguage(langdir+lf)
 Next
+
+Global wordlistfiles:TList = ListDir(worddir)
 
 Global lang$ =  "English"
 Global cud = 1
