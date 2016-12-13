@@ -63,6 +63,25 @@ Private
 	End Function
 	
 	callback mm_lang,SelectLanguage
+	
+	
+	Function DoDir(G:TGadget)
+		Local r:Byte
+		Select g	
+			Case mm_ud r=gdr_ud
+			Case mm_du r=gdr_du
+			Case mm_lr r=gdr_lr
+			Case mm_rl r=gdr_rl
+		End Select
+		?debug
+		Print "Set "+r+" to "+ButtonState(G)
+		?
+		gdr[r]=ButtonState(G)
+	End Function
+	callback mm_ud,dodir
+	callback mm_du,dodir
+	callback mm_lr,dodir
+	callback mm_rl,dodir	
 
 Public
 

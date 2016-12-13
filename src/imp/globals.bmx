@@ -61,3 +61,11 @@ Function Callback(G:TGadget,func(G:TGadget),A$="Action")
 		Case "ACTION"	CB.action  = func
 	End Select
 End Function
+
+
+
+Const gdr_ud = 0
+Const gdr_du = 1
+Const gdr_rl = 2
+Const gdr_lr = 3
+Global gdr:Byte[4]
