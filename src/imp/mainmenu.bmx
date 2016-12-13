@@ -90,6 +90,13 @@ Private
 	End Function
 	reqseed mm_seed
 	callback mm_seed,reqseed
+	
+	Function GetWordList(G:TGadget)
+		wordlist = GadgetText(G)
+		Print "Using list: "+wordlist
+	End Function 
+	Getwordlist mm_wordlist
+	callback mm_wordlist,GetWordList
 
 Public
 

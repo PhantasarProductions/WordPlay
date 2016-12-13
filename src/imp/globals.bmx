@@ -27,6 +27,7 @@ SortList langlist
 Next
 
 Global wordlistfiles:TList = ListDir(worddir)
+Global wordlist$
 
 Global lang$ =  "English"
 Global cud = 1
