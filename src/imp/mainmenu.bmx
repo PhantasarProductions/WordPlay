@@ -117,3 +117,11 @@ LocalizeGadget mm_ud,"{{dir_ud}}"
 LocalizeGadget mm_du,"{{dir_du}}"
 LocalizeGadget mm_lr,"{{dir_lr}}"
 LocalizeGadget mm_rl,"{{dir_rl}}"
+
+
+Global mm_html:Tgadget = CreateButton("yeah?",0,200,MM_ww,25,mm_win)
+Global mm_play:Tgadget = CreateButton("yeah?",0,225,mm_ww,25,mm_win)
+
+LocalizeGadget mm_html,"{{genhtml}}"
+LocalizeGadget mm_play,"{{genplay}}"
+
