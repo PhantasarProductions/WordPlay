@@ -82,6 +82,14 @@ Private
 	callback mm_du,dodir	dodir mm_du
 	callback mm_lr,dodir	dodir mm_lr
 	callback mm_rl,dodir	dodir mm_rl
+	
+	Function ReqSeed(G:TGadget)
+		requestseed = GadgetText(G).toint()
+		If requestseed trueseed=requestseed Else trueseed=MilliSecs()
+		Print "Seed is now: "+trueseed+"          ("+requestseed+")"
+	End Function
+	reqseed mm_seed
+	callback mm_seed,reqseed
 
 Public
 

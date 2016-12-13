@@ -69,3 +69,6 @@ Const gdr_du = 1
 Const gdr_rl = 2
 Const gdr_lr = 3
 Global gdr:Byte[4]
+
+Global requestseed
+Global trueseed
