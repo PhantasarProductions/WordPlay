@@ -42,7 +42,29 @@ Global mm_seed : tgadget = CreateTextField(mm_cx,100,mm_cx,25,mm_win)
 
 LocalizeGadget CreateLabel("yeah",0,125,mm_cx,25,mm_win),"{{language}}"
 
+Global mm_lang : Tgadget = CreateComboBox(mm_cx,125,mm_cx,25,mm_win)
+Private
+	Global clang,c
+	For Local lng$=EachIn langlist
+		AddGadgetItem mm_lang,StripAll(lng )
+		If StripAll(lng)=lang clang=c
+		c:+1
+		?debug
+		Print "Init lang "+lng+"; default lang: "+lang
+		?
+	Next 
+	SelectGadgetItem mm_lang,clang
+	
+	Function SelectLanguage(G:TGadget)
+		Print "Localizing as: "+lang+" as requested by the user"
+		Local c = SelectedGadgetItem(G)
+		lang = GadgetItemText(G,c)
+		SetLocalizationLanguage  L(lang)
+	End Function
+	
+	callback mm_lang,SelectLanguage
 
+Public
 
 LocalizeGadget  mm_win, "{{title}}", "title"
 LocalizeGadget mm_ud,"{{dir_ud}}"

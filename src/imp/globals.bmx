@@ -19,7 +19,9 @@ Global langdir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/Language
 Global worddir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/WordList/"
 ? 
 
-For Local lf$=EachIn ListDir(langdir)
+Global langlist:TList = ListDir(langdir)
+For Local lf$=EachIn  langlist
+SortList langlist
 	Print "Loading Language: "+lf
 	MapInsert maxlanguages,StripAll(lf),LoadLanguage(langdir+lf)
 Next
@@ -32,3 +34,30 @@ Global cdu = 0
 Global crl = 0
 Global clr = 1
 
+Function Nothing(G:TGadget) End Function ' Silly what you need sometimes, eh? :-P
+
+Type tcallback
+	Field action(g:tgadget) = Nothing
+End Type
+Global CallBackMap : tmap = New tmap
+Global CBNothing:TCallback = New tcallback
+
+Function GetCallBack:Tcallback(G:TGadget)
+	Local ret:tcallback = tcallback(MapValueForKey(callbackmap,G))
+	If Not ret Return CBNothing
+	Return ret
+End Function
+
+Function Callback(G:TGadget,func(G:TGadget),A$="Action")
+	Local CB:Tcallback = New tcallback
+	If MapContains(callbackmap,G)
+		 CB = getcallback(G)
+		Print "Added '"+A+"' function to existing callback"
+	Else
+		Print "New callback for action "+A+" created"
+		MapInsert callbackmap,g,CB
+	EndIf
+	Select Upper(a)
+		Case "ACTION"	CB.action  = func
+	End Select
+End Function
