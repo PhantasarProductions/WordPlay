@@ -1,6 +1,6 @@
 Strict
 
-Import "globals.bmx"
+Import "generator.bmx"
 
 
 Global mm_win:tgadget = CreateWindow(AppFile,0,0,ClientWidth(Desktop())*.75,ClientHeight(Desktop())*.75,Null,window_center | Window_titlebar )
@@ -125,3 +125,10 @@ Global mm_play:Tgadget = CreateButton("yeah?",0,225,mm_ww,25,mm_win)
 LocalizeGadget mm_html,"{{genhtml}}"
 LocalizeGadget mm_play,"{{genplay}}"
 
+Function Gen(G:TGadget)
+	HideGadget mm_win
+	startgenerator
+End Function
+
+callback mm_html,gen
+callback mm_play,gen
