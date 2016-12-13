@@ -78,10 +78,10 @@ Private
 		?
 		gdr[r]=ButtonState(G)
 	End Function
-	callback mm_ud,dodir
-	callback mm_du,dodir
-	callback mm_lr,dodir
-	callback mm_rl,dodir	
+	callback mm_ud,dodir	dodir mm_ud
+	callback mm_du,dodir	dodir mm_du
+	callback mm_lr,dodir	dodir mm_lr
+	callback mm_rl,dodir	dodir mm_rl
 
 Public
 
