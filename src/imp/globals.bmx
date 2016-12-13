@@ -39,6 +39,7 @@ Function Nothing(G:TGadget) End Function ' Silly what you need sometimes, eh? :-
 
 Type tcallback
 	Field action(g:tgadget) = Nothing
+	Field close(g:tgadget) = nothing
 End Type
 Global CallBackMap : tmap = New tmap
 Global CBNothing:TCallback = New tcallback
@@ -60,6 +61,7 @@ Function Callback(G:TGadget,func(G:TGadget),A$="Action")
 	EndIf
 	Select Upper(a)
 		Case "ACTION"	CB.action  = func
+		Case "CLOSE"		CB.Close = func
 	End Select
 End Function
 
@@ -73,3 +75,5 @@ Global gdr:Byte[4]
 
 Global requestseed
 Global trueseed
+
+Global numwords

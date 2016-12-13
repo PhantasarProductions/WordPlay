@@ -10,6 +10,9 @@ Global mm_cx = mm_ww/2
 Global mm_cy = mm_wh/2
 LocalizeGadget CreateLabel("yeah",0,0,mm_cx,25,mm_win),"{{dir}}","dir"
 
+Function Goodbye(G:Tgadget) End End Function
+callback mm_win,goodbye,"CLOSE"
+
 Global mm_ud:tgadget = CreateButton("",mm_cx  ,0,mm_cx/2,25,mm_win,button_checkbox)
 Global mm_du:tgadget = CreateButton("",mm_cx+(mm_cx/2),0,mm_cx/2,25,mm_win,button_checkbox)
 SetButtonState mm_ud,cud
@@ -21,11 +24,11 @@ SetButtonState mm_rl,crl
 
 
 LocalizeGadget CreateLabel("yeah",0,50,mm_cx,25,mm_win),"{{words}}","words"
-Global NumWords:TGadget = CreateComboBox(mm_cx,50,mm_cx,25,mm_win)
+Global mm_NumWords:TGadget = CreateComboBox(mm_cx,50,mm_cx,25,mm_win)
 For Local i=5 To 25 Step 5 
-	AddGadgetItem Numwords,i
+	AddGadgetItem mm_Numwords,i
 Next
-SelectGadgetItem numwords,3
+SelectGadgetItem mm_numwords,3
 
 LocalizeGadget CreateLabel("yeah",0,75,mm_cx,25,mm_win),"{{list}}"
 Global mm_wordlist:tgadget = CreateComboBox(mm_cx,75,mm_cx,75,mm_win)
@@ -97,6 +100,15 @@ Private
 	End Function 
 	Getwordlist mm_wordlist
 	callback mm_wordlist,GetWordList
+	
+	Function GetNumWords(G:TGadget)
+		Local i = SelectedGadgetItem(g)
+		Local r = (i+1)*5
+		numwords = r
+		Print "We want "+numwords+" words in our puzzle"
+	End Function
+	getnumwords mm_numwords
+	callback mm_numwords,getnumwords
 
 Public
 

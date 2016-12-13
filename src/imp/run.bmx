@@ -21,6 +21,7 @@ Private
 			?	
 			Select eid
 				Case event_gadgetaction	cb.action esource
+				Case event_windowclose	cb.close esource
 			End Select
 		EndIf
 	Forever
