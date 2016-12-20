@@ -8,6 +8,7 @@ SetLocalizationLanguage  L(lang)
 Private
 	Global eid,esource:Tgadget,cb:tcallback
 	Repeat
+		If currentflow currentflow
 		PollEvent
 		eid = EventID()
 		esource = tgadget(EventSource())

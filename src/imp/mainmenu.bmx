@@ -3,7 +3,7 @@ Strict
 Import "generator.bmx"
 
 
-Global mm_win:tgadget = CreateWindow(AppFile,0,0,ClientWidth(Desktop())*.75,ClientHeight(Desktop())*.75,Null,window_center | Window_titlebar )
+mm_win:tgadget = CreateWindow(AppFile,0,0,ClientWidth(Desktop())*.75,ClientHeight(Desktop())*.75,Null,window_center | Window_titlebar )
 Global mm_ww = ClientWidth(mm_win)
 Global mm_wh = ClientWidth(mm_win)
 Global mm_cx = mm_ww/2

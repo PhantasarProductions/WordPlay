@@ -77,3 +77,16 @@ Global requestseed
 Global trueseed
 
 Global numwords
+
+
+
+Global CurrentFlow()
+
+
+'Gui win
+Global mm_win:Tgadget
+
+'Puzzle
+Const pz_maxwidth=40
+Const pz_maxheight=40
+Global pz_letters[pz_maxwidth,pz_maxheight]
