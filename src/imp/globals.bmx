@@ -86,7 +86,13 @@ Global CurrentFlow()
 'Gui win
 Global mm_win:Tgadget
 
+'Chain
+Global GenChain()
+Function NoGenChain() Notify "Hey, GenChain has not yet been set!" End EndFunction genchain=nogenchain
+
 'Puzzle
 Const pz_maxwidth=40
 Const pz_maxheight=40
 Global pz_letters[pz_maxwidth,pz_maxheight]
+
+

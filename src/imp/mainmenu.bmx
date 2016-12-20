@@ -25,7 +25,7 @@ SetButtonState mm_rl,crl
 
 LocalizeGadget CreateLabel("yeah",0,50,mm_cx,25,mm_win),"{{words}}","words"
 Global mm_NumWords:TGadget = CreateComboBox(mm_cx,50,mm_cx,25,mm_win)
-For Local i=5 To 25 Step 5 
+For Local i=5 To 40 Step 5 
 	AddGadgetItem mm_Numwords,i
 Next
 SelectGadgetItem mm_numwords,3
@@ -127,6 +127,9 @@ LocalizeGadget mm_play,"{{genplay}}"
 
 Function Gen(G:TGadget)
 	HideGadget mm_win
+	Select g
+		Case mm_html  genchain = HTMLOutput
+	End Select
 	startgenerator
 End Function
 
