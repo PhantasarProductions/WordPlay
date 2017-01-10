@@ -5,6 +5,7 @@ Import maxgui.drivers
 Import tricky_units.Listfile
 Import tricky_units.ListDir
 Import brl.eventqueue
+Import jcr6.zlibdriver
 
 Global MaxLanguages:tmap = New tmap
 Function L:Tmaxguilanguage(tag$)
@@ -18,6 +19,8 @@ Global worddir$ = AppDir+"/"+"Wordlist/"
 Global langdir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/Languages/"
 Global worddir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/WordList/"
 ? 
+
+Global SwapDir$ = Dirry("$AppSupport$/WordPlay/")
 
 Global langlist:TList = ListDir(langdir)
 For Local lf$=EachIn  langlist

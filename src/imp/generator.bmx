@@ -135,4 +135,27 @@ Public
 		ShowGadget mm_win
 	End Function
 		
+	Function jcr6output()
+		Local bt:TJCRCreate = JCR_Create(Swapdir+"GeneratedPuzzle")
+		Local bo:TJCRCreateStream = bt.createentry("Data","zlib")
+		WriteLine bo.stream,"Seed:"+trueseed
+		WriteLine bo.stream,"Width:"+pz_maxheight
+		WriteLine bo.stream,"Height:"+pz_maxwidth
+		WriteLine bo.stream,"Language:"+lang
+		WriteLine bo.stream,"WordCount:"+CountList(playwordlist)
+		bo.close
+		bo = bt.createentry("WordList","zlib")
+		For Local w$=EachIn playwordlist 
+			WriteLine bo.stream,w
+		Next
+		bo.close
+		bo = bt.createentry("Letters")
+		For Local y=0 Until pz_maxheight
+			For Local x=0 Until pz_maxwidth
+				WriteByte bo, pz_letters[x,y]
+			Next
+		Next
+		bo.close
+		bt.close "zlib"	
+	End Function	
 		
