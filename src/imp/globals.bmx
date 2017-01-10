@@ -4,6 +4,7 @@ Import brl.map
 Import maxgui.drivers
 Import tricky_units.Listfile
 Import tricky_units.ListDir
+Import tricky_units.Dirry
 Import brl.eventqueue
 Import jcr6.zlibdriver
 
@@ -21,6 +22,7 @@ Global worddir$ = AppDir+"/"+StripAll(AppFile)+".app/Contents/Resources/WordList
 ? 
 
 Global SwapDir$ = Dirry("$AppSupport$/WordPlay/")
+CreateDir swapdir,1
 
 Global langlist:TList = ListDir(langdir)
 For Local lf$=EachIn  langlist

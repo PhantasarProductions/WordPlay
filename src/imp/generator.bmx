@@ -136,7 +136,12 @@ Public
 	End Function
 		
 	Function jcr6output()
+		currentflow = Null
 		Local bt:TJCRCreate = JCR_Create(Swapdir+"GeneratedPuzzle")
+		If Not bt
+			Notify "ERRROR CREATING SWAP!~n~n"+Swapdir+"GeneratedPuzzle"
+			End
+		EndIf
 		Local bo:TJCRCreateStream = bt.createentry("Data","zlib")
 		WriteLine bo.stream,"Seed:"+trueseed
 		WriteLine bo.stream,"Width:"+pz_maxheight
@@ -149,13 +154,15 @@ Public
 			WriteLine bo.stream,w
 		Next
 		bo.close
-		bo = bt.createentry("Letters")
+		bo = bt.createentry("Letters","zlib")
 		For Local y=0 Until pz_maxheight
 			For Local x=0 Until pz_maxwidth
-				WriteByte bo, pz_letters[x,y]
+				WriteByte bo.stream, pz_letters[x,y]
 			Next
 		Next
 		bo.close
 		bt.close "zlib"	
+		HideGadget gen_win
+		ShowGadget mm_win		
 	End Function	
 		

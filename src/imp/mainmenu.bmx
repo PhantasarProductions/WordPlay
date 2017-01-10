@@ -125,13 +125,25 @@ Global mm_play:Tgadget = CreateButton("yeah?",0,225,mm_ww,25,mm_win)
 LocalizeGadget mm_html,"{{genhtml}}"
 LocalizeGadget mm_play,"{{genplay}}"
 
+Function PlayGame()
+	jcr6output
+	?win32
+	system_ "WordPlay_Play.exe"
+	?macos
+	Notify "Mac chain not available yet!"
+	? 
+End Function
+	
 Function Gen(G:TGadget)
 	HideGadget mm_win
 	Select g
 		Case mm_html  genchain = HTMLOutput
+		Case mm_play		genchain = PlayGame
 	End Select
 	startgenerator
 End Function
+
+
 
 callback mm_html,gen
 callback mm_play,gen
