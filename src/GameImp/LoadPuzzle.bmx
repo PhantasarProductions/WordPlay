@@ -16,5 +16,9 @@ Function LoadPuzzle(F$)
 	Next
 	If f=defaultpuzzle AppTitle = "Wordplay - Seed #"+PuzData.Value("Seed") Else AppTitle = "Wordplay - "+F
 	puzletters = New Byte[ puzdata.value("width").toint() , puzdata.value("height").toint() ]
+	Local BT:TStream = ReadFile( JCR_B( J,"Letters") )
+	For Local lx=0 Until puzdata.value("width").toint() For Local ly=0 Until puzdata.value("height").toint()
+		puzletters[lx,ly]=ReadByte(BT)
+	Next Next
 	DebugLog "AppTitle = "+AppTitle
 End Function
