@@ -15,6 +15,6 @@ Function LoadPuzzle(F$)
 		DebugLog p[0]+" = "+p[1]
 	Next
 	If f=defaultpuzzle AppTitle = "Wordplay - Seed #"+PuzData.Value("Seed") Else AppTitle = "Wordplay - "+F
-	puzletters = New Byte[ puzdata.value("width").toint() , puzdata.value("height").toint() ]
+	puzletters = New Byte[ puzdata.value("width").toint() , puzdata.value("height").toint()]
 	DebugLog "AppTitle = "+AppTitle
 End Function

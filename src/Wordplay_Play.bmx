@@ -6,7 +6,7 @@ Import        "icon/icon.o"
 Import        "GameImp/main.bmx"
 
 'incbin
-Incbin        "gameimp/fonts/whiterabbit/whiterabbit.bmx"
+Import        "gameimp/fonts/whiterabbit/whiterabbit.bmx"
 
 init
 GoMain

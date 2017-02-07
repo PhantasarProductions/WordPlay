@@ -1,5 +1,5 @@
 Strict
-Framework jcr6.zlibdriver
+Framework     jcr6.zlibdriver
 Import        brl.glmax2d
 Import        brl.freetypefont
 Import        "icon/icon.o"

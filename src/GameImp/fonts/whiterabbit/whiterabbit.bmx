@@ -1,1 +1,1 @@
-incbin "whiterabt.ttf"
+Incbin "whitrabt.ttf"
