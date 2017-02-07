@@ -8,6 +8,7 @@ Global swapdir$ = Dirry("$AppSupport$/WordPlay/")
 Global defaultpuzzle$ = Swapdir+"Generatedpuzzle"
 
 Global PuzData:StringMap
+Global puzletters:Byte[,]
 
 
 Global puzfont:timagefont

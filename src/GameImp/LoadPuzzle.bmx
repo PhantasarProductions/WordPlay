@@ -20,5 +20,9 @@ Function LoadPuzzle(F$)
 	For Local lx=0 Until puzdata.value("width").toint() For Local ly=0 Until puzdata.value("height").toint()
 		puzletters[lx,ly]=ReadByte(BT)
 	Next Next
+	puzwordslist = Listfile ( JCR_B( J,"Wordlist" ) )
+	puzwords=String[](ListToArray(puzwordslist))
+	For Local i=0 Until (Len puzwords) DebugLog i + "   "+puzwords[i] Next
+	For Local w$=EachIn puzwordslist DebugLog "list>> "+W next
 	DebugLog "AppTitle = "+AppTitle
 End Function

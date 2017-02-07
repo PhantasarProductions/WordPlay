@@ -9,6 +9,7 @@ Global defaultpuzzle$ = Swapdir+"Generatedpuzzle"
 
 Global PuzData:StringMap
 Global puzletters:Byte[,]
+Global puzwordslist:TList,puzwords$[]
 
 
 Global puzfont:timagefont
