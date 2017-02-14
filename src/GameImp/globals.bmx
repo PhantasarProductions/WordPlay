@@ -12,6 +12,7 @@ Global puzletters:Byte[,]
 Global puzwordslist:TList,puzwords$[]
 
 Global pw,ph
+const pzf_s=20
 
 
 Global puzfont:timagefont

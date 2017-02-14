@@ -11,5 +11,8 @@ Global PuzData:StringMap
 Global puzletters:Byte[,]
 Global puzwordslist:TList,puzwords$[]
 
+Global pw,ph
+Global pzf_s=20
+
 
 Global puzfont:timagefont

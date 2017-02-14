@@ -3,11 +3,15 @@ Import "Init.bmx"
 Function DrawLetters()
 	SetImageFont puzfont
 	SetColor 255,255,255
+	Print pw+"x"+ph
 	Local x,y
 	Local l$
 	For x=0 Until pw For y=0 Until ph 
 		l = Chr(puzletters[x,y])
 		DrawText l,(x*25)+(TextWidth(l)/2),(y*25)+(TextHeight(l)/2)
+		?debug
+		If (x*25)+(TextWidth(l)/2)>GraphicsWidth() Or (y*25)+(TextHeight(l)/2)>GraphicsHeight() Print "WARNING pos("+x+","+y+") out of screen range"
+		?
 	Next Next
 End Function
 
