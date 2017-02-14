@@ -27,4 +27,6 @@ Function LoadPuzzle(F$)
 	DebugLog "AppTitle = "+AppTitle
 	pw = puzdata.value("Width").toint()
 	ph = puzdata.value("Height").toint()
+	puzsolved = New TList
+	boxes=New tlist
 End Function

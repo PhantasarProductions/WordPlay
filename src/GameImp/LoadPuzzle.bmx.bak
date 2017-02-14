@@ -25,6 +25,7 @@ Function LoadPuzzle(F$)
 	For Local i=0 Until (Len puzwords) DebugLog i + "   "+puzwords[i] Next
 	For Local w$=EachIn puzwordslist DebugLog "list>> "+W Next
 	DebugLog "AppTitle = "+AppTitle
-	pw = puzdata.value("width").toint()
-	ph = puzdata.value("height").toint()
+	pw = puzdata.value("Width").toint()
+	ph = puzdata.value("Height").toint()
+	puzsolved = New tlist
 End Function
