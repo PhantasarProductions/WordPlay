@@ -16,6 +16,8 @@ Function DrawLetters()
 	Next
 	EndRem
     ' Show puzzle
+	Local mx=Floor(MouseX()/pzf_s)
+	Local my=Floor(MouseY()/pzf_s)
 	SetBlend alphablend
 	SetAlpha 1
 	SetImageFont puzfont
@@ -25,6 +27,7 @@ Function DrawLetters()
 	Local l$
 	For x=0 Until pw For y=0 Until ph 
 		l = Chr(puzletters[x,y])
+		If mx=x And my=y SetColor 255,0,0 Else SetColor 255,255,255
 		DrawText l,(x*pzf_s)+(TextWidth(l)/2),(y*pzf_s)+(TextHeight(l)/2)
 		?debug
 		If (x*pzf_s)+(TextWidth(l)/2)>GraphicsWidth() Or (y*pzf_s)+(TextHeight(l)/2)>GraphicsHeight() Print "WARNING pos("+x+","+y+") out of screen range"
@@ -40,12 +43,35 @@ Function DrawLetters()
 		SetAlpha .75
 		SetColor 255,180,0
 		DrawLine (vastx*pzf_s)+(pzf_s/2),(vasty*pzf_s)+(pzf_s/2),MouseX(),MouseY()
+		SetAlpha 1
 	EndIf
 	For Local b:tpbox = EachIn boxes b.draw ;Next
 End Function
 
+Function DrawTime()
+	SetColor 255,180,0
+	If Not oldtime 
+		oldtime=CurrentTime()
+	ElseIf oldtime<>CurrentTime()
+		tmsc:+1
+		oldtime = CurrentTime()
+		If tmsc>=60 tmsc:-60; tmmn:+1
+		If tmmn>=60 tmmn:-60; tmhr:+1
+	EndIf
+	Local st$ = ""
+	If tmhr st:+tmhr+"h"
+	If tmmn st:+tmmn+"'"
+	If tmsc st:+tmsc+"~q"
+	Local tmw=TextWidth(st)
+	Local tmh=TextHeight(st)
+	Local scw=GraphicsWidth()
+	Local sch=GraphicsHeight()
+	DrawText st,scw-tmw,sch-tmh
+End Function
+
 Function DrawScreen()
 	DrawLetters()
+	DrawTime
 End Function
 
 Global vastx,vasty,vast

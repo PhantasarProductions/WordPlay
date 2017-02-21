@@ -28,5 +28,8 @@ Function LoadPuzzle(F$)
 	pw = puzdata.value("Width").toint()
 	ph = puzdata.value("Height").toint()
 	puzsolved = New TList
-	boxes=New tlist
+	boxes=New TList
+	tmhr=0
+	tmmn=0
+	tmsc=0
 End Function

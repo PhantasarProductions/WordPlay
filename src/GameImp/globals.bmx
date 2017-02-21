@@ -1,4 +1,4 @@
-strict
+Strict
 Import brl.max2d
 Import tricky_units.Dirry
 Import jcr6.jcr6main
@@ -48,3 +48,7 @@ Function abox(x1,y1,x2,y2)
 	DebugLog "ab("+x1+","+y1+","+x2+","+y2+")   ===> "+w+"x"+h
 	addbox x1*pzf_s,y1*pzf_s,w*pzf_s,h*pzf_s
 End Function
+
+
+' Time
+Global tmHr,tmMn,tmSc,OldTime$
