@@ -72,7 +72,7 @@ End Function
 
 Function DrawOk()
 	SetColor 180,255,0
-	Local d$ = CountList(puzsolved)+"/"+CountList(puzwordslist)
+	Local d$ = PuzFound+"/"+PuzHave
 	Local tmw=TextWidth(d)
 	Local tmh=TextHeight(d)
 	Local scw=GraphicsWidth()
@@ -83,23 +83,25 @@ End Function
 Function DrawBack()
 	If Not bcki Return
 	Local x,y
-	Local scw=GraphicsWidth()
-	Local sch=GraphicsHeight()
-	Local cx = scw/2
-	Local cy = sch/2
-	x = cx+(Sin(bckdeg)*100)
-	y = cy+(Cos(bckdeg)*100)
+	'Local scw=GraphicsWidth()
+	'Local sch=GraphicsHeight()
+	'Local cx = scw/2
+	'Local cy = sch/2
+	'x = cx+(Sin(bckdeg)*100)
+	'y = cy+(Cos(bckdeg)*100)
 	bckdeg:+bckspd
 	If bckdeg>360 bckdeg:-360
 	SetColor bckr,bckg,bckb
-	TileImage bcki,x,y
+	'TileImage bcki,x,y
+	SetScale 1,1
+	DrawImage bcki2,00,0
 	If bckr<bckra[bckc] bckr:+1
 	If bckg<bckga[bckc] bckg:+1
 	If bckb<bckba[bckc] bckb:+1
 	If bckr>bckra[bckc] bckr:-1
 	If bckg>bckga[bckc] bckg:-1
 	If bckb>bckba[bckc] bckb:-1
-	SetColor 255,255,255	DrawText bckc+">"+bckr+"/"+bckg+"/"+bckb+"  "+bckra[bckc]+"/"+bckga[bckc]+"/"+bckba[bckc]+"  ("+x+","+y+")",0,0
+	SetColor 255,255,255	DrawText bckc+">"+bckr+"/"+bckg+"/"+bckb+"  "+bckra[bckc]+"/"+bckga[bckc]+"/"+bckba[bckc]+"  ("+x+","+y+") "+GraphicsWidth()+"x"+GraphicsHeight(),0,0
 End Function
 
 Function DrawScreen()
@@ -139,7 +141,7 @@ Function MouseCheck()
 		EndIf
 		Print "Mouse up >> "+woord
 		For Local w$=EachIn puzwordslist
-			If Upper(w)=woord And (Not ListContains( puzsolved, woord )) ListAddLast puzsolved,woord; SortList puzsolved; Abox vastx,vasty,endx+1,endy+1
+			If Upper(w)=woord And (Not ListContains( puzsolved, woord )) ListAddLast puzsolved,woord; SortList puzsolved; Abox vastx,vasty,endx+1,endy+1; puzfound=CountList(puzsolved)
 		Next
 	EndIf
 End Function

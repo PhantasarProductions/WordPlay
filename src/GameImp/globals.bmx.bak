@@ -16,6 +16,7 @@ Global PuzData:StringMap
 Global puzletters:Byte[,]
 Global puzwordslist:TList,puzwords$[]
 Global puzsolved:TList
+Global puzfound,puzhave
 
 Function pzlet$(x,y)
 	If x>=0 And y>=0 And x<pw And y<ph Return Chr(puzletters[x,y])
@@ -58,7 +59,7 @@ Global tmHr,tmMn,tmSc,OldTime$
 
 
 ' Background
-Global bckdeg:Double=0,bckspd=.5
+Global bckdeg:Double=0,bckspd:Double=.5
 Global bckr,bckg,bckb
 Global bckra[8],bckga[8],bckba[8]
 bckra[0]=255
@@ -75,6 +76,9 @@ bckga[7]=255
 bckba[7]=255
 
 Global bckc=Rand(0,7)
+bckr=255
+bckg=255
+bckb=255
 Global bcki:TImage = LoadImage("incbin::Background.png")
 If Not bcki Print "WARNING: BACKGROUND NOT LOADED!!"
 

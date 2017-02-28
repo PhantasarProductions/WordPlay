@@ -32,4 +32,5 @@ Function LoadPuzzle(F$)
 	tmhr=0
 	tmmn=0
 	tmsc=0
+	puzhave = CountList(puzwordslist)
 End Function

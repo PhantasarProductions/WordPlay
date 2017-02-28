@@ -16,6 +16,7 @@ Global PuzData:StringMap
 Global puzletters:Byte[,]
 Global puzwordslist:TList,puzwords$[]
 Global puzsolved:TList
+Global puzfound,puzhave
 
 Function pzlet$(x,y)
 	If x>=0 And y>=0 And x<pw And y<ph Return Chr(puzletters[x,y])
@@ -61,6 +62,7 @@ Global tmHr,tmMn,tmSc,OldTime$
 Global bckdeg:Double=0,bckspd:Double=.5
 Global bckr,bckg,bckb
 Global bckra[8],bckga[8],bckba[8]
+Global bcki2:Timage
 bckra[0]=255
 bckga[1]=255
 bckba[3]=255
