@@ -66,12 +66,23 @@ Function DrawTime()
 	Local tmh=TextHeight(st)
 	Local scw=GraphicsWidth()
 	Local sch=GraphicsHeight()
-	DrawText st,scw-tmw,sch-tmh
+	DrawText st,scw-tmw,sch-(tmh*2.5)
+End Function
+
+Function DrawOk()
+	SetColor 180,255,0
+	Local d$ = CountList(puzsolved)+"/"+CountList(puzwordslist)
+	Local tmw=TextWidth(d)
+	Local tmh=TextHeight(d)
+	Local scw=GraphicsWidth()
+	Local sch=GraphicsHeight()
+	DrawText d,scw-tmw,sch-tmh
 End Function
 
 Function DrawScreen()
-	DrawLetters()
+	DrawLetters
 	DrawTime
+	DrawOk
 End Function
 
 Global vastx,vasty,vast
