@@ -1,0 +1,2 @@
+Strict
+Incbin "Background.png"

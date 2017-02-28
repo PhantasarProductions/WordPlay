@@ -57,6 +57,7 @@ Function DrawTime()
 		oldtime = CurrentTime()
 		If tmsc>=60 tmsc:-60; tmmn:+1
 		If tmmn>=60 tmmn:-60; tmhr:+1
+		If tmsc=0 bckc=Rand(0,7)
 	EndIf
 	Local st$ = ""
 	If tmhr st:+tmhr+"h"
@@ -66,7 +67,7 @@ Function DrawTime()
 	Local tmh=TextHeight(st)
 	Local scw=GraphicsWidth()
 	Local sch=GraphicsHeight()
-	DrawText st,scw-tmw,sch-(tmh*1.5)
+	DrawText st,scw-tmw,sch-(tmh*2.5)
 End Function
 
 Function DrawOk()
@@ -79,7 +80,30 @@ Function DrawOk()
 	DrawText d,scw-tmw,sch-tmh
 End Function
 
+Function DrawBack()
+	If Not bcki Return
+	Local x,y
+	Local scw=GraphicsWidth()
+	Local sch=GraphicsHeight()
+	Local cx = scw/2
+	Local cy = sch/2
+	x = cx+(Sin(bckdeg)*100)
+	y = cy+(Cos(bckdeg)*100)
+	bckdeg:+bckspd
+	If bckdeg>360 bckdeg:-360
+	SetColor bckr,bckg,bckb
+	TileImage bcki,x,y
+	If bckr<bckra[bckc] bckr:+1
+	If bckg<bckga[bckc] bckg:+1
+	If bckb<bckba[bckc] bckb:+1
+	If bckr>bckra[bckc] bckr:-1
+	If bckg>bckga[bckc] bckg:-1
+	If bckb>bckba[bckc] bckb:-1
+	SetColor 255,255,255	DrawText bckc+">"+bckr+"/"+bckg+"/"+bckg+"  "+bckra[bckc]+"/"+bckga[bckc]+"/"+bckba[bckc]+"  ("+x+","+y+")",0,0
+End Function
+
 Function DrawScreen()
+	DrawBack
 	DrawLetters
 	DrawTime
 	DrawOk

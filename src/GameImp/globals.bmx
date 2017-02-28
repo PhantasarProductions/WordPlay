@@ -6,6 +6,9 @@ Import tricky_units.StringMap
 Import tricky_units.Listfile
 Import Tricky_Units.Rectangles
 
+Import "Pix/Pix.h.bmx"
+
+
 Global swapdir$ = Dirry("$AppSupport$/WordPlay/")
 Global defaultpuzzle$ = Swapdir+"Generatedpuzzle"
 
@@ -52,3 +55,30 @@ End Function
 
 ' Time
 Global tmHr,tmMn,tmSc,OldTime$
+
+
+' Background
+Global bckdeg:Double=0,bckspd:Double=.5
+Global bckr,bckg,bckb
+Global bckra[8],bckga[8],bckba[8]
+bckra[0]=255
+bckga[1]=255
+bckba[3]=255
+bckra[4]=255
+bckga[4]=255
+bckba[5]=255
+bckga[5]=255
+bckra[6]=255
+bckba[6]=255
+bckra[7]=255
+bckga[7]=255
+bckba[7]=255
+
+Global bckc=Rand(0,7)
+bckr=255
+bckg=255
+bckb=255
+Global bcki:TImage = LoadImage("incbin::Background.png")
+If Not bcki Print "WARNING: BACKGROUND NOT LOADED!!"
+
+
