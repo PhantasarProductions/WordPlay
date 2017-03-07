@@ -81,7 +81,7 @@ Function DrawOk()
 End Function
 
 Function DrawBack()
-	If Not fast return
+	If Not fast Return
 	If Not bcki Return
 	Local x,y
 	'Local scw=GraphicsWidth()
@@ -155,6 +155,7 @@ Function GoMain()
 		?debug
 			If KeyDown(KEY_B) And KeyDown(KEY_Y) And KeyDown(KEY_E) End
 		?
+		If AppTerminate() If Confirm("Quit?") end
 		MouseCheck
 		Flip
 	Forever
