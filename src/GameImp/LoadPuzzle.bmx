@@ -33,4 +33,5 @@ Function LoadPuzzle(F$)
 	tmmn=0
 	tmsc=0
 	puzhave = CountList(puzwordslist)
+	fast = puzdata.value("Fast").toint()<>0
 End Function

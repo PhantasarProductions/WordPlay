@@ -49,7 +49,7 @@ Global mm_lang : Tgadget = CreateComboBox(mm_cx,125,mm_cx,25,mm_win)
 
 LocalizeGadget CreateLabel("yeah",0,150,mm_cx,25,mm_win),"{{performance}}"
 Global mm_perpanel : TGadget = CreatePanel(mm_cx,150,mm_cx,50,mm_win)
-Global mm_fast : tgadget = CreateButton("yeah",0,0,mm_cx,25,mm_perpanel,button_radio); LocalizeGadget mm_fast,"{{pcpfast}}"; SetButtonState mm_fast,1
+Global mm_fast : tgadget = CreateButton("yeah",0,0,mm_cx,25,mm_perpanel,button_radio); LocalizeGadget mm_fast,"{{pcpfast}}"; SetButtonState mm_fast,1; glfast=mm_fast
 LocalizeGadget CreateButton("yeah",0,25,mm_cx,25,mm_perpanel,button_radio),"{{pcpslow}}"
 
 Private

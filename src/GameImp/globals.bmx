@@ -62,7 +62,7 @@ Global tmHr,tmMn,tmSc,OldTime$
 Global bckdeg:Double=0,bckspd:Double=.5
 Global bckr,bckg,bckb
 Global bckra[8],bckga[8],bckba[8]
-Global bcki2:Timage
+Global bcki2:TImage
 bckra[0]=255
 bckga[1]=255
 bckba[3]=255
@@ -83,4 +83,6 @@ bckb=255
 Global bcki:TImage = LoadImage("incbin::Background.png")
 If Not bcki Print "WARNING: BACKGROUND NOT LOADED!!"
 
+
+Global fast:byte
 

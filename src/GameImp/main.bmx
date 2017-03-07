@@ -81,6 +81,7 @@ Function DrawOk()
 End Function
 
 Function DrawBack()
+	If Not fast return
 	If Not bcki Return
 	Local x,y
 	'Local scw=GraphicsWidth()

@@ -143,6 +143,7 @@ Public
 			End
 		EndIf
 		Local bo:TJCRCreateStream = bt.createentry("Data","zlib")
+		WriteLine bo.stream,"Fast:"+ButtonState(glfast)
 		WriteLine bo.stream,"Seed:"+trueseed
 		WriteLine bo.stream,"Width:"+pz_maxheight
 		WriteLine bo.stream,"Height:"+pz_maxwidth

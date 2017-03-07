@@ -100,4 +100,5 @@ Const pz_maxwidth=40
 Const pz_maxheight=40
 Global pz_letters[pz_maxwidth,pz_maxheight]
 
+Global glfast:tgadget
 
