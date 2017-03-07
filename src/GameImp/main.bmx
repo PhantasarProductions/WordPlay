@@ -25,9 +25,12 @@ Function DrawLetters()
 	'Print pw+"x"+ph
 	Local x,y
 	Local l$
-	For x=0 Until pw For y=0 Until ph 
+	For x=0 Until pw For y=0 Until ph 		
 		l = Chr(puzletters[x,y])
 		If mx=x And my=y SetColor 255,0,0 Else SetColor 255,255,255
+		?debug
+		If KeyDown(puzletters[x,y]) SetColor 0,180,255
+		?
 		DrawText l,(x*pzf_s)+(TextWidth(l)/2),(y*pzf_s)+(TextHeight(l)/2)
 		?debug
 		If (x*pzf_s)+(TextWidth(l)/2)>GraphicsWidth() Or (y*pzf_s)+(TextHeight(l)/2)>GraphicsHeight() Print "WARNING pos("+x+","+y+") out of screen range"
@@ -78,6 +81,15 @@ Function DrawOk()
 	Local scw=GraphicsWidth()
 	Local sch=GraphicsHeight()
 	DrawText d,scw-tmw,sch-tmh
+	If puzfound=puzhave 
+		Local st$ = ""
+		If tmhr st:+tmhr+"h"
+		If tmmn st:+tmmn+"'"
+		If tmsc st:+tmsc+"~q"
+		EndGraphics
+		Notify "All Done!~nTime: "+ST
+		End
+	EndIf
 End Function
 
 Function DrawBack()
@@ -153,9 +165,9 @@ Function GoMain()
 		Cls
 		drawscreen
 		?debug
-			If KeyDown(KEY_B) And KeyDown(KEY_Y) And KeyDown(KEY_E) End
+			'If KeyDown(KEY_B) And KeyDown(KEY_Y) And KeyDown(KEY_E) End
 		?
-		If AppTerminate() If Confirm("Quit?") end
+		If AppTerminate() If Confirm("Quit?") End
 		MouseCheck
 		Flip
 	Forever
