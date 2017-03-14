@@ -154,7 +154,12 @@ Function MouseCheck()
 		EndIf
 		Print "Mouse up >> "+woord
 		For Local w$=EachIn puzwordslist
-			If Upper(w)=woord And (Not ListContains( puzsolved, woord )) ListAddLast puzsolved,woord; SortList puzsolved; Abox vastx,vasty,endx+1,endy+1; puzfound=CountList(puzsolved)
+			If Upper(w)=woord And (Not ListContains( puzsolved, woord )) 
+			   	ListAddLast puzsolved,woord; 
+				SortList puzsolved; 
+				Abox vastx,vasty,endx+1,endy+1; 
+				puzfound=CountList(puzsolved)
+			endif	
 		Next
 	EndIf
 End Function

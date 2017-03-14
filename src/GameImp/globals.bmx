@@ -49,6 +49,8 @@ End Function
 Function abox(x1,y1,x2,y2)
 	Local w=x2-x1
 	Local h=y2-y1
+	If w<0 x1:+1; w:-2 '(pzf_s*2)
+	If h<0 y1:+1; h:-2 '(pzf_s*2)
 	DebugLog "ab("+x1+","+y1+","+x2+","+y2+")   ===> "+w+"x"+h
 	addbox x1*pzf_s,y1*pzf_s,w*pzf_s,h*pzf_s
 End Function
@@ -84,5 +86,5 @@ Global bcki:TImage = LoadImage("incbin::Background.png")
 If Not bcki Print "WARNING: BACKGROUND NOT LOADED!!"
 
 
-Global fast:byte
+Global fast:Byte
 
