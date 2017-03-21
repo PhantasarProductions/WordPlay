@@ -9,6 +9,7 @@ Import        "GameImp/main.bmx"
 'incbin
 Import        "gameimp/fonts/whiterabbit/whiterabbit.bmx"
 Import        "gameimp/Pix/Pix.h.bmx"
+Import        "gameimg/Audio/Audio.h.bmx"
 
 init
 GoMain
