@@ -5,8 +5,11 @@ Import jcr6.jcr6main
 Import tricky_units.StringMap
 Import tricky_units.Listfile
 Import Tricky_Units.Rectangles
+Import BRL.Audio
+Import brl.oggloader
 
 Import "Pix/Pix.h.bmx"
+Import "Audio/Audio.h.bmx"
 
 
 Global swapdir$ = Dirry("$AppSupport$/WordPlay/")
@@ -87,4 +90,8 @@ If Not bcki Print "WARNING: BACKGROUND NOT LOADED!!"
 
 
 Global fast:Byte
+
+Global AudioGood:TSound = LoadSound("incbin::Good.ogg")
+If Not AudioGood Print "WARNING! GOOD SOUND NOT LOADED!!"
+
 

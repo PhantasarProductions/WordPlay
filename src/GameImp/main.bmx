@@ -159,7 +159,8 @@ Function MouseCheck()
 				SortList puzsolved; 
 				Abox vastx,vasty,endx+1,endy+1; 
 				puzfound=CountList(puzsolved)
-			endif	
+				PlaySound AudioGood
+			EndIf	
 		Next
 	EndIf
 End Function
