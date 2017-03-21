@@ -39,7 +39,8 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 Source: "E:\Projects\private\wordplay\src\Wordplay.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\Projects\private\wordplay\src\Wordplay_Play.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Projects\private\wordplay\src\WordList\*"; DestDir: "{app}\Test"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\Projects\private\wordplay\src\WordList\*"; DestDir: "{app}\WordList"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\Projects\private\wordplay\src\Languages\*"; DestDir: "{app}\Languages"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
