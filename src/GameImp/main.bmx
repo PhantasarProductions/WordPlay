@@ -114,7 +114,7 @@ Function DrawBack()
 	If bckr>bckra[bckc] bckr:-1
 	If bckg>bckga[bckc] bckg:-1
 	If bckb>bckba[bckc] bckb:-1
-	SetColor 255,255,255	DrawText bckc+">"+bckr+"/"+bckg+"/"+bckb+"  "+bckra[bckc]+"/"+bckga[bckc]+"/"+bckba[bckc]+"  ("+x+","+y+") "+GraphicsWidth()+"x"+GraphicsHeight(),0,0
+	'SetColor 255,255,255	DrawText bckc+">"+bckr+"/"+bckg+"/"+bckb+"  "+bckra[bckc]+"/"+bckga[bckc]+"/"+bckba[bckc]+"  ("+x+","+y+") "+GraphicsWidth()+"x"+GraphicsHeight(),0,0
 End Function
 
 Function DrawScreen()
